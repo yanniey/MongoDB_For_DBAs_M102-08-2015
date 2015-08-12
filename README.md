@@ -3,9 +3,21 @@ August 2015 with MongoD Version 3.0.3
 
 ---
 
-Chapter 1: Introduction	Introduction to MongoDB, key concepts and installing Mongo
+## Week 2: CRUD Functions
+
+Insert:
+
+```
+db.sample.insert({a:1})
+```
 
 ---
+
+
+## Week 1: Introduction	
+
+Introduction to MongoDB, key concepts and installing Mongo
+
 
 ```
 mkdir data
