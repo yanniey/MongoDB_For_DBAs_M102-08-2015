@@ -5,10 +5,24 @@ August 2015 with MongoD Version 3.0.3
 
 ## Week 2: CRUD Functions
 
-Insert:
+Insert, update
 
 ```
 db.sample.insert({a:1})
+
+update([Where],[Do],[upsert],[multi])
+db.sample.update({_id:100},{"_id":100,x:"hello"})
+```
+
+Partial Updates
+
+$set
+$push
+$addToSet
+$pop
+$unset
+
+```
 ```
 
 ---
