@@ -23,7 +23,50 @@ $pop
 $unset
 
 ```
+t.update({_id:101},{$set:{y:100}})
+
+increment y by 1:
+t.update({_id:101},{$inc:{y:1}})
+
+add "hi" to array "arr" with push:
+t.update({_id:101},{$push:{arr:"hi"}})
 ```
+
+Upsert
+
+```
+> db.collection.update( query_document, update_document, options_document )
+
+where options_document contains key:value pairs such as:
+multi : true/false, 
+upsert : true/false,
+writeConcern: document
+```
+
+Remove/Delete
+
+```
+db.test.remove({_id:100})
+```
+
+Builk() write operations: ordered or unordered
+
+```
+var bulk = db.items.initializeUnorderedBulkOp();
+var b = db.items.initializeOrderedBulkOp();
+bulk.insert([some sample inserts here]);
+bulk.execute();
+```
+
+
+
+## Quiz Answers:
+
+```
+db.users.remove({"addr.city":"Lyon",registered:false});
+db.users.update({"_id":"Jane"},{$push:{"likes":"football"}},true);
+```
+
 
 ---
 
