@@ -5,7 +5,7 @@ August 2015 with MongoD Version 3.0.3
 
 ## Week 2: CRUD Functions
 
-Insert, update
+### Insert, update
 
 ```
 db.sample.insert({a:1})
@@ -14,13 +14,18 @@ update([Where],[Do],[upsert],[multi])
 db.sample.update({_id:100},{"_id":100,x:"hello"})
 ```
 
-Partial Updates
+### Partial Updates
 
-$set
-$push
-$addToSet
-$pop
-$unset
++ $set
+
++ $push
+
++ $addToSet
+
++ $pop
+
++ $unset
+
 
 ```
 t.update({_id:101},{$set:{y:100}})
@@ -32,7 +37,7 @@ add "hi" to array "arr" with push:
 t.update({_id:101},{$push:{arr:"hi"}})
 ```
 
-Upsert
+### Upsert
 
 ```
 > db.collection.update( query_document, update_document, options_document )
@@ -43,13 +48,13 @@ upsert : true/false,
 writeConcern: document
 ```
 
-Remove/Delete
+### Remove/Delete
 
 ```
 db.test.remove({_id:100})
 ```
 
-Builk() write operations: ordered or unordered
+### Bulk() write operations: ordered or unordered
 
 ```
 var bulk = db.items.initializeUnorderedBulkOp();
@@ -58,7 +63,29 @@ bulk.insert([some sample inserts here]);
 bulk.execute();
 ```
 
+### Commands
 
++ getLastError
+ 
++ isMaster
+
++ serverStatus
+ 
++ collection.stats() & collection.drop()
+ 
++ ensureIndex
+ 
++ dropIndex
+ 
++ currentOp
+ 
++ killOp
+
+
+
+```
+db.runCommand({getLastError:1,w:2})
+```
 
 ## Quiz Answers:
 
