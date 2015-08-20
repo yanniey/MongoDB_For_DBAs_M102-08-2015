@@ -1,9 +1,35 @@
 # M102: MongoDB for DBAs
+
 August 2015 with MongoD Version 3.0.3
 
 ---
+## Week 3: Performance
 
-## Week 2: CRUD Functions
+Storage Engines:
+
++ MMAPv1
++ WiredTiger
+
+Check which storage engine I'm using:
+
+```
+db.serverStatus()
+```
+
+Explicitly use MMAPv1 or Wired Tiger for storage engine:
+
+```
+mongod --storageEngine mmapv1
+mongod --storageEngine wiredTiger
+```
+
+### MMAPv1:
+
+Power of Two Sized Allocations(with paddings)
+
+---
+
+## Week 2: CRUD and Administrative Commands
 
 ### Insert, update
 
