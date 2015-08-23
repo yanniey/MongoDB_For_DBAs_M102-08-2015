@@ -58,16 +58,16 @@ db.foo.find().sort({ a: 1, b: 1},{unique:true});
 ### Sparse index (when majority of the collection don't have that field) 
 
 ```
-sparse:true
+db.foo.find().sort({ a: 1, b: 1},{sparse:true});
 ```
 
-###TTL index: time to live
+### TTL index: time to live
 
 ```
 expireAfterSeconds: 3600
 ```
 
-###Geospatial indexes
+### Geospatial indexes
 
 ```
 {"_id":ObjectId("xxxxxxx"),"loc":[-20,23]}
@@ -96,7 +96,7 @@ Find everything within the polygon:
 
 db.sentences.createIndex( { words: "text" } )
 
-db.sentences.find( {$text: { $search "cat"} }, {score: {$meta: "textScore"}}).sort( {score: {$meta: "textScore"}})
+db.sentences.find( {$text: { $search: "cat"} }, {score: {$meta: "textScore"}}).sort( {score: {$meta: "textScore"}})
 
 ### Explain() with executionStats, allPlansExecution
 
