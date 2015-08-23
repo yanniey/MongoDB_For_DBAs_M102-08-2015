@@ -27,6 +27,97 @@ mongod --storageEngine wiredTiger
 
 Power of Two Sized Allocations(with paddings)
 
+### WiredTiger:
+
+Compression + Document-level concurrency control
+
+### createIndex(),getIndexes(),dropIndex()
+
+use $elemMatch for compound indexes
+
+```
+db.foo.createIndex({ a: 1, b: 1});
+
+compound index:
+db.foo.createIndex({a.b:1});
+
+db.foo.find().sort({ a: 1, b: 1},{unique:true});
+
+db.foo.getIndexes();
+
+db.foo.dropIndex({ a : 1});
+```
+
+## Indexes
+
+### Unique index
+
+```
+db.foo.find().sort({ a: 1, b: 1},{unique:true});
+```
+### Sparse index (when majority of the collection don't have that field) 
+
+```
+sparse:true
+```
+
+###TTL index: time to live
+
+```
+expireAfterSeconds: 3600
+```
+
+###Geospatial indexes
+
+```
+{"_id":ObjectId("xxxxxxx"),"loc":[-20,23]}
+db.places.createIndex( { loc : "2dsphere" } )
+```
+
+### Sort points by nearest distance
+
+```
+db.places.find(
+	{ loc: 
+		{ $near : {
+					{ $geometry: 
+						{type: "Point", coordinates: [2,2.01]},
+						spherical : true
+					}
+				}
+		}
+	}
+)
+```
+
+Find everything within the polygon:
+
+### Text Search Index
+
+db.sentences.createIndex( { words: "text" } )
+
+db.sentences.find( {$text: { $search "cat"} }, {score: {$meta: "textScore"}}).sort( {score: {$meta: "textScore"}})
+
+### Explain() with executionStats, allPlansExecution
+
+```
+db.foo.explain().find()
+db.foo.explain("executionStats")
+db.foo.explain("allPlansExecution").find( {a:14,b:12} )
+```
+
+### Covered Queries
+
+```
+db.exp.find({ a:7,b:7,c:7]}, {_id:0,a:2,b:1,c:1})
+```
+
+### Read & Write Recap
+
+More indexes = Faster Read = Slower Write
+
+### currentOp() & killOp()
+
 ---
 
 ## Week 2: CRUD and Administrative Commands
