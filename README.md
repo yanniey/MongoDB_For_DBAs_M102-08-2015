@@ -118,6 +118,33 @@ More indexes = Faster Read = Slower Write
 
 ### currentOp() & killOp()
 
+```
+db.currentOp()
+db.killOp(<opid>)
+```
+
+### Profiler
+
+```
+show profile
+
+db.showProfilingStatus()
+db.setProfilingLevel(level,<slowms>) 0=off 1=slow 2=all
+```
+
+Look at the last item in the profile
+
+```
+db.system.profile.find().sort({$natural:-1}).limit(1).pretty()
+```
+
+### mongostat() and mongotop()
+
+```
+mongostat --port 27003
+```
+
+
 ---
 
 ## Week 2: CRUD and Administrative Commands
