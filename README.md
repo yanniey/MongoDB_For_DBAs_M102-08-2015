@@ -7,6 +7,13 @@ August 2015 with MongoD Version 3.0.3
 
 Statement-based vs. Binary replication
 
+Replica Set:
+
++ Automatic failover
++ Automatic recovery after failover
++ Rollback: A secondary (that was previously a primary) contains write operations that are ahead of the current primary
++ Each server in the replica set needs a unique `dbpath` and `port`
+
 ---
 ## Week 3: Performance
 
