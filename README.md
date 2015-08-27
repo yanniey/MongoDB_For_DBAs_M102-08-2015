@@ -3,6 +3,7 @@
 August 2015 with MongoD Version 3.0.3
 
 ---
+
 ## Week 4: Replication
 
 Statement-based vs. Binary replication
@@ -12,9 +13,18 @@ Replica Set:
 + Automatic failover
 + Automatic recovery after failover
 + Rollback: A secondary (that was previously a primary) contains write operations that are ahead of the current primary
-+ Each server in the replica set needs a unique `dbpath` and `port`
++ Each server in the replica set needs a unique `dbpath`(to store the data) and `port`
+
+
+The first replica set:
+
+{% highlight bash %}
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mongod --port 27001 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/1 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.1 --logappend --oplogSize 50 --smallfiles --fork
+{% endhighlight %}
+
 
 ---
+
 ## Week 3: Performance
 
 Storage Engines:
