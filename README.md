@@ -3,6 +3,11 @@
 August 2015 with MongoD Version 3.0.3
 
 ---
+## Week 4: Replication
+
+Statement-based vs. Binary replication
+
+---
 ## Week 3: Performance
 
 Storage Engines:
