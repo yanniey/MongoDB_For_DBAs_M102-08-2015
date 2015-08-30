@@ -16,12 +16,262 @@ Replica Set:
 + Each server in the replica set needs a unique `dbpath`(to store the data) and `port`
 
 
+### Starting a Replica Set
+
 The first replica set:
 
-{% highlight bash %}
-Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mongod --port 27001 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/1 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.1 --logappend --oplogSize 50 --smallfiles --fork
-{% endhighlight %}
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mkdir 1 2 3
 
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mongod --port 27001 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/1 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.1 --logappend --oplogSize 50 --smallfiles --fork
+```
+
+Then do the same for the other 2 slave servers, changing 1 to 2 and 3:
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mongod --port 27002 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/2 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.2 --logappend --oplogSize 50 --smallfiles --fork
+about to fork child process, waiting until server is ready for connections.
+forked process: 30005
+child process started successfully, parent exiting
+```
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mongod --port 27003 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/3 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.3 --logappend --oplogSize 50 --smallfiles --fork
+about to fork child process, waiting until server is ready for connections.
+forked process: 30054
+child process started successfully, parent exiting
+```
+
+Check the replica set is working:
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ ps ax | grep mongo | grep M102P
+
+29919   ??  S      0:02.42 mongod --port 27001 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/1 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.1 --logappend --oplogSize 50 --smallfiles --fork
+30005   ??  S      0:00.94 mongod --port 27002 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/2 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.2 --logappend --oplogSize 50 --smallfiles --fork
+30054   ??  S      0:00.40 mongod --port 27003 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/3 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4/log.3 --logappend --oplogSize 50 --smallfiles --fork
+```
+
+Check the first log
+
+```
+less log.1
+```
+
+### Initiate the replica set
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week4$ mongo --port 27001
+MongoDB shell version: 3.0.3
+connecting to: 127.0.0.1:27001/test
+> cfg = {
+... _id : "M102P",
+... members: [
+... {_id:0, host:"Anyis-MacBook-Pro.local:27001"},
+... {_id:1, host:"Anyis-MacBook-Pro.local:27002"},
+... {_id:2, host:"Anyis-MacBook-Pro.local:27003"}
+... ]
+... }
+{
+	"_id" : "M102P",
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "Anyis-MacBook-Pro.local:27001"
+		},
+		{
+			"_id" : 1,
+			"host" : "Anyis-MacBook-Pro.local:27002"
+		},
+		{
+			"_id" : 2,
+			"host" : "Anyis-MacBook-Pro.local:27003"
+		}
+	]
+}
+> rs.initiate(cfg)
+{ "ok" : 1 }
+
+```
+
+
+### Replica Set Status
+
+
+```
+> rs.status()
+
+M102P:OTHER> rs.status()
+{
+	"set" : "M102P",
+	"date" : ISODate("2015-08-30T03:38:27.039Z"),
+	"myState" : 1,
+	"members" : [
+		{
+			"_id" : 0,
+			"name" : "Anyis-MacBook-Pro.local:27001",
+			"health" : 1,
+			"state" : 1,
+			"stateStr" : "PRIMARY",
+			"uptime" : 30456,
+			"optime" : Timestamp(1440905869, 1),
+			"optimeDate" : ISODate("2015-08-30T03:37:49Z"),
+			"electionTime" : Timestamp(1440905873, 1),
+			"electionDate" : ISODate("2015-08-30T03:37:53Z"),
+			"configVersion" : 1,
+			"self" : true
+		},
+		{
+			"_id" : 1,
+			"name" : "Anyis-MacBook-Pro.local:27002",
+			"health" : 1,
+			"state" : 2,
+			"stateStr" : "SECONDARY",
+			"uptime" : 37,
+			"optime" : Timestamp(1440905869, 1),
+			"optimeDate" : ISODate("2015-08-30T03:37:49Z"),
+			"lastHeartbeat" : ISODate("2015-08-30T03:38:25.183Z"),
+			"lastHeartbeatRecv" : ISODate("2015-08-30T03:38:25.183Z"),
+			"pingMs" : 0,
+			"configVersion" : 1
+		},
+		{
+			"_id" : 2,
+			"name" : "Anyis-MacBook-Pro.local:27003",
+			"health" : 1,
+			"state" : 2,
+			"stateStr" : "SECONDARY",
+			"uptime" : 37,
+			"optime" : Timestamp(1440905869, 1),
+			"optimeDate" : ISODate("2015-08-30T03:37:49Z"),
+			"lastHeartbeat" : ISODate("2015-08-30T03:38:25.183Z"),
+			"lastHeartbeatRecv" : ISODate("2015-08-30T03:38:25.183Z"),
+			"pingMs" : 0,
+			"configVersion" : 1
+		}
+	],
+	"ok" : 1
+}
+M102P:PRIMARY>
+
+```
+
+### Replica Set Commands
+
+
++ rs.conf()
+
+```
+M102P:PRIMARY> rs.conf()
+{
+	"_id" : "M102P",
+	"version" : 1,
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "Anyis-MacBook-Pro.local:27001",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		},
+		{
+			"_id" : 1,
+			"host" : "Anyis-MacBook-Pro.local:27002",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		},
+		{
+			"_id" : 2,
+			"host" : "Anyis-MacBook-Pro.local:27003",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		}
+	],
+	"settings" : {
+		"chainingAllowed" : true,
+		"heartbeatTimeoutSecs" : 10,
+		"getLastErrorModes" : {
+
+		},
+		"getLastErrorDefaults" : {
+			"w" : 1,
+			"wtimeout" : 0
+		}
+	}
+}
+```
+
++ db.isMaster()
+
+```
+M102P:PRIMARY> db.isMaster()
+{
+	"setName" : "M102P",
+	"setVersion" : 1,
+	"ismaster" : true,
+	"secondary" : false,
+	"hosts" : [
+		"Anyis-MacBook-Pro.local:27001",
+		"Anyis-MacBook-Pro.local:27002",
+		"Anyis-MacBook-Pro.local:27003"
+	],
+	"primary" : "Anyis-MacBook-Pro.local:27001",
+	"me" : "Anyis-MacBook-Pro.local:27001",
+	"electionId" : ObjectId("55e27a91e44b7dcc992dda69"),
+	"maxBsonObjectSize" : 16777216,
+	"maxMessageSizeBytes" : 48000000,
+	"maxWriteBatchSize" : 1000,
+	"localTime" : ISODate("2015-08-30T04:14:44.038Z"),
+	"maxWireVersion" : 3,
+	"minWireVersion" : 0,
+	"ok" : 1
+}
+```
+
+Which command prevents a node from becoming primary for 5 minutes?
+
++ rs.stepDown(300)
++ rs.freeze(300)
+
+
+### Reading & Writing
+
+Error message: 
+
+```
+M102P:SECONDARY> db.foo.find()
+Error: error: { "$err" : "not master and slaveOk=false", "code" : 13435 }
+```
+
+MongoDB doesn't by default allow reading directly from secondary DBs. To enable that, use `rs.slaveOk()`
+
+```
+M102P:SECONDARY> rs.slaveOk()
+M102P:SECONDARY> db.foo.find()
+{ "_id" : ObjectId("55e28423974a3b262098f11e"), "name" : "first" }
+```
+
+### Failover
 
 ---
 
