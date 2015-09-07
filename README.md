@@ -4,6 +4,158 @@ August 2015 with MongoD Version 3.0.3
 
 ---
 
+## Week 5: Replication Part 2
+
+#### Replica set config options
+
++ arbiterOnly: true
+	The arbiter server doesn't have any data and is used for election. No data is written or read on the arbiter. Protect network splits.
+
++ priority: 0(never priority)
+	The higher the number, the higher the priority.(e.g. 1.05 has higher priority than 1). The value must be >= 0.
+
++ hidden: true
+	The clients cannot see the server if `hidden: true`.
+
++ slaveDelay: 8 * 3600 (seconds, that is 8 hours)
+	A member must wait x seconds. It's good for preventing against a new client application release bug and getting a view of the DB between backups
+
+
+### Set up the same replica set as in Week 4, and change the third server (27003) to slaveDelay:true
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5$ mkdir 1 2 3
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5$ ls
+1/ 2/ 3/
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5$ mongod --port 27001 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/1 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/log.1 --logappend --oplogSize 50 --smallfiles --fork
+about to fork child process, waiting until server is ready for connections.
+forked process: 22503
+child process started successfully, parent exiting
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5$ mongod --port 27002 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/2 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/log.2 --logappend --oplogSize 50 --smallfiles --fork
+about to fork child process, waiting until server is ready for connections.
+forked process: 22510
+child process started successfully, parent exiting
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5$ mongod --port 27003 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/3 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/log.3 --logappend --oplogSize 50 --smallfiles --fork
+about to fork child process, waiting until server is ready for connections.
+forked process: 22517
+child process started successfully, parent exiting
+```
+
+Check replica set status
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5$ ps ax | grep mongo | grep M102P
+22503   ??  S      0:00.77 mongod --port 27001 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/1 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/log.1 --logappend --oplogSize 50 --smallfiles --fork
+22510   ??  S      0:00.63 mongod --port 27002 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/2 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/log.2 --logappend --oplogSize 50 --smallfiles --fork
+22517   ??  S      0:00.54 mongod --port 27003 --replSet M102P --dbpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/3 --logpath /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week5/log.3 --logappend --oplogSize 50 --smallfiles --fork
+```
+
+Change 27003 to `slaveDelay: true`:
+
+```
+M102P:PRIMARY> var cfg = rs.conf()
+M102P:PRIMARY> cfg.members[2].priority = 0;
+M102P:PRIMARY> cfg.members[2].slaveDelay = 120;
+true
+M102P:PRIMARY> cfg
+{
+	"_id" : "M102P",
+	"version" : 1,
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "Anyis-MacBook-Pro.local:27001",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		},
+		{
+			"_id" : 1,
+			"host" : "Anyis-MacBook-Pro.local:27002",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		},
+		{
+			"_id" : 2,
+			"host" : "Anyis-MacBook-Pro.local:27003",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 0,
+			"tags" : {
+
+			},
+			"slaveDelay" : 120,
+			"votes" : 1
+		}
+	],
+	"settings" : {
+		"chainingAllowed" : true,
+		"heartbeatTimeoutSecs" : 10,
+		"getLastErrorModes" : {
+
+		},
+		"getLastErrorDefaults" : {
+			"w" : 1,
+			"wtimeout" : 0
+		}
+	}
+}
+
+```
+
+Commands to check the status of replic set:
+
+```
+rs.status()
+rs.isMaster()
+rs.config()
+```
+
+Get connected to server 2 in the terminal:
+
+```
+var server2 = new Mongo('localhost:27002')
+var server2_test = server2.getDB('test')
+server2_test
+server2_test.getMongo().setSlaveOk()
+server2_test.foo.findOne()
+```
+
+To check which port I am on: `db.isMaster().me`
+
+```
+M102P:PRIMARY> db.isMaster().me
+Anyis-MacBook-Pro.local:27001
+```
+
+### Write concern
+
++ no call to GLE(getLastError)
++ w : 1(if any of the server has the data, then an acknowledgement is sent)
++ w : 'majority'
++ w : 3(all)
+
+
+```
+db.getLastError({w:'majority',wtimeout:8000})
+```
+
+---
+
 ## Week 4: Replication
 
 Statement-based vs. Binary replication
@@ -72,6 +224,8 @@ connecting to: 127.0.0.1:27001/test
 ... {_id:2, host:"Anyis-MacBook-Pro.local:27003"}
 ... ]
 ... }
+
+
 {
 	"_id" : "M102P",
 	"members" : [
