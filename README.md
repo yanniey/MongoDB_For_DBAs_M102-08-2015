@@ -6,6 +6,8 @@ August 2015 with MongoD Version 3.0.3
 
 ## Week 5: Replication Part 2
 
+Optimizing and monitoring your Replica Sets
+
 #### Replica set config options
 
 + arbiterOnly: true
@@ -144,15 +146,25 @@ Anyis-MacBook-Pro.local:27001
 
 ### Write concern
 
-+ no call to GLE(getLastError)
-+ w : 1(if any of the server has the data, then an acknowledgement is sent)
-+ w : 'majority'
-+ w : 3(all)
++ no call to GLE(getLastError) (no user impact)
++ w : 1 (if any of the server has the data, then an acknowledgement is sent)
++ w : 'majority' (most things, important)
++ w : 3 (all servers,flow control)
 
+### getLastError()
 
 ```
-db.getLastError({w:'majority',wtimeout:8000})
+getLastError({w:'majority',wtimeout:8000(8 seconds)})
 ```
+
+### Recommended configs for replica set in a single & multiple datacenters
+
+replica set limits:
+
++ <= 12 members
++ <= 7 voters
+
+replica sets can mix different storage engines, and the results will be the same
 
 ---
 
