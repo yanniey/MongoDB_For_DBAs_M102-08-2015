@@ -3,6 +3,33 @@
 August 2015 with MongoD Version 3.0.3
 
 ---
+## Week 6: Scalability (Sharding/Partitioning)
+
+range-based("chunk", ~100MB each) partitioning
+
+the more shards you have, the more replica sets you want to make sure that data is preserved when a server goes down.
+
+
+#### Operations:
+
++ "splits": inexpensive, divide a shard into multiple ones
++ "migration": move data from one shard to another, expensive, maintains balance
+
+#### Config server:
+It contains metadata and tells you which server the data is on.
+
+#### Mongos:
+The clients talk to `mongos`, and then `mongos` will talk to everyone on behalf of the client.
+
+
+#### Demo: Cluster Setup
+
+How to set up 4 shards with replication factor of 3 (each shard has 3 replica set servers)
+
+```
+```
+
+---
 
 ## Week 5: Replication Part 2
 
