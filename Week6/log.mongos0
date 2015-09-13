@@ -1,0 +1,132 @@
+2015-09-13T13:21:13.507-0500 I SHARDING [mongosMain] MongoS version 3.0.3 starting: pid=1552 port=27017 64-bit host=Anyis-MacBook-Pro.local (--help for usage)
+2015-09-13T13:21:13.507-0500 I CONTROL  [mongosMain] db version v3.0.3
+2015-09-13T13:21:13.507-0500 I CONTROL  [mongosMain] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2015-09-13T13:21:13.507-0500 I CONTROL  [mongosMain] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-09-13T13:21:13.507-0500 I CONTROL  [mongosMain] allocator: system
+2015-09-13T13:21:13.507-0500 I CONTROL  [mongosMain] options: { processManagement: { fork: true }, sharding: { configDB: "Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052" }, systemLog: { destination: "file", logAppend: true, path: "log.mongos0" } }
+2015-09-13T13:21:13.511-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26050]
+2015-09-13T13:21:13.512-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26051]
+2015-09-13T13:21:13.513-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26052]
+2015-09-13T13:21:13.610-0500 I NETWORK  [mongosMain] scoped connection to Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 not being returned to the pool
+2015-09-13T13:21:13.617-0500 I SHARDING [LockPinger] creating distributed lock ping thread for Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 and process Anyis-MacBook-Pro.local:27017:1442168473:16807 (sleeping for 30000ms)
+2015-09-13T13:21:13.617-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26050]
+2015-09-13T13:21:13.617-0500 I NETWORK  [LockPinger] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26050]
+2015-09-13T13:21:13.618-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26051]
+2015-09-13T13:21:13.618-0500 I NETWORK  [LockPinger] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26051]
+2015-09-13T13:21:13.619-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26052]
+2015-09-13T13:21:13.620-0500 I NETWORK  [LockPinger] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26052]
+2015-09-13T13:21:14.266-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:21:13 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:21:14.413-0500 I SHARDING [mongosMain] distributed lock 'configUpgrade/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5be9a47f10f5ff0d0681c
+2015-09-13T13:21:14.415-0500 I SHARDING [mongosMain] starting upgrade of config server from v0 to v6
+2015-09-13T13:21:14.415-0500 I SHARDING [mongosMain] starting next upgrade step from v0 to v6
+2015-09-13T13:21:14.415-0500 I SHARDING [mongosMain] about to log new metadata event: { _id: "Anyis-MacBook-Pro.local-2015-09-13T18:21:14-55f5be9a47f10f5ff0d0681d", server: "Anyis-MacBook-Pro.local", clientAddr: "N/A", time: new Date(1442168474415), what: "starting upgrade of config database", ns: "config.version", details: { from: 0, to: 6 } }
+2015-09-13T13:21:14.572-0500 I SHARDING [mongosMain] writing initial config version at v6
+2015-09-13T13:21:14.586-0500 I SHARDING [mongosMain] about to log new metadata event: { _id: "Anyis-MacBook-Pro.local-2015-09-13T18:21:14-55f5be9a47f10f5ff0d0681f", server: "Anyis-MacBook-Pro.local", clientAddr: "N/A", time: new Date(1442168474586), what: "finished upgrade of config database", ns: "config.version", details: { from: 0, to: 6 } }
+2015-09-13T13:21:14.595-0500 I SHARDING [mongosMain] upgrade of config server to v6 successful
+2015-09-13T13:21:14.596-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26050]
+2015-09-13T13:21:14.596-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26051]
+2015-09-13T13:21:14.597-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26052]
+2015-09-13T13:21:14.812-0500 I SHARDING [mongosMain] distributed lock 'configUpgrade/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:21:14.911-0500 I SHARDING [Balancer] about to contact config servers and shards
+2015-09-13T13:21:14.912-0500 I SHARDING [Balancer] config servers and shards contacted successfully
+2015-09-13T13:21:14.912-0500 I NETWORK  [mongosMain] waiting for connections on port 27017
+2015-09-13T13:21:14.912-0500 I SHARDING [Balancer] balancer id: Anyis-MacBook-Pro.local:27017 started at Sep 13 13:21:14
+2015-09-13T13:21:15.104-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5be9a47f10f5ff0d06821
+2015-09-13T13:21:15.393-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:21:44.588-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:21:44 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:21:45.562-0500 I SHARDING [Balancer] could not acquire lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' (another update won)
+2015-09-13T13:21:45.563-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' was not acquired.
+2015-09-13T13:21:55.737-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bec347f10f5ff0d06824
+2015-09-13T13:21:55.964-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:22:06.400-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5becd47f10f5ff0d06826
+2015-09-13T13:22:06.628-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:22:14.893-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:22:14 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:22:17.027-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bed847f10f5ff0d06828
+2015-09-13T13:22:17.299-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:22:27.464-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bee347f10f5ff0d0682a
+2015-09-13T13:22:27.696-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:22:37.997-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5beed47f10f5ff0d0682c
+2015-09-13T13:22:38.183-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:22:45.188-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:22:44 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:22:48.608-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bef847f10f5ff0d0682e
+2015-09-13T13:22:48.834-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:22:59.205-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf0247f10f5ff0d06830
+2015-09-13T13:22:59.428-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:23:09.858-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf0d47f10f5ff0d06832
+2015-09-13T13:23:10.051-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:23:15.575-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:23:15 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:23:20.428-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf1847f10f5ff0d06834
+2015-09-13T13:23:20.653-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:23:31.022-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf2247f10f5ff0d06836
+2015-09-13T13:23:31.250-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:23:41.529-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf2d47f10f5ff0d06838
+2015-09-13T13:23:41.753-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:23:46.024-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:23:45 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:23:52.102-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf3747f10f5ff0d0683a
+2015-09-13T13:23:52.331-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:24:02.787-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf4247f10f5ff0d0683c
+2015-09-13T13:24:03.011-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:24:13.342-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf4d47f10f5ff0d0683e
+2015-09-13T13:24:13.568-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:24:16.475-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:24:16 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:24:18.774-0500 I CONTROL  ***** SERVER RESTARTED *****
+2015-09-13T13:24:18.779-0500 I SHARDING [mongosMain] MongoS version 3.0.3 starting: pid=1756 port=27017 64-bit host=Anyis-MacBook-Pro.local (--help for usage)
+2015-09-13T13:24:18.780-0500 I CONTROL  [mongosMain] db version v3.0.3
+2015-09-13T13:24:18.780-0500 I CONTROL  [mongosMain] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2015-09-13T13:24:18.780-0500 I CONTROL  [mongosMain] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-09-13T13:24:18.780-0500 I CONTROL  [mongosMain] allocator: system
+2015-09-13T13:24:18.780-0500 I CONTROL  [mongosMain] options: { processManagement: { fork: true }, sharding: { configDB: "Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052" }, systemLog: { destination: "file", logAppend: true, path: "log.mongos0" } }
+2015-09-13T13:24:19.397-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26050]
+2015-09-13T13:24:19.399-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26051]
+2015-09-13T13:24:19.403-0500 I NETWORK  [mongosMain] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26052]
+2015-09-13T13:24:19.456-0500 I SHARDING [Balancer] about to contact config servers and shards
+2015-09-13T13:24:19.457-0500 I SHARDING [Balancer] config servers and shards contacted successfully
+2015-09-13T13:24:19.457-0500 E NETWORK  [mongosMain] listen(): bind() failed errno:48 Address already in use for socket: 0.0.0.0:27017
+2015-09-13T13:24:19.457-0500 I SHARDING [Balancer] balancer id: Anyis-MacBook-Pro.local:27017 started at Sep 13 13:24:19
+2015-09-13T13:24:19.458-0500 E NETWORK  [mongosMain]   addr already in use
+2015-09-13T13:24:19.458-0500 I SHARDING [mongosMain] dbexit:  rc:48
+2015-09-13T13:24:23.876-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf5747f10f5ff0d06840
+2015-09-13T13:24:24.098-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:24:34.368-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf6247f10f5ff0d06842
+2015-09-13T13:24:34.593-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:24:44.940-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf6c47f10f5ff0d06844
+2015-09-13T13:24:44.945-0500 I NETWORK  [UserCacheInvalidator] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26050]
+2015-09-13T13:24:44.947-0500 I NETWORK  [UserCacheInvalidator] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26051]
+2015-09-13T13:24:44.948-0500 I NETWORK  [UserCacheInvalidator] SyncClusterConnection connecting to [Anyis-MacBook-Pro.local:26052]
+2015-09-13T13:24:45.174-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:24:46.902-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:24:46 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:24:55.703-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf7747f10f5ff0d06846
+2015-09-13T13:24:55.893-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:25:06.204-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf8147f10f5ff0d06848
+2015-09-13T13:25:06.432-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:25:16.815-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf8c47f10f5ff0d0684a
+2015-09-13T13:25:17.006-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:25:17.302-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:25:16 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:25:27.454-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bf9747f10f5ff0d0684c
+2015-09-13T13:25:27.678-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:25:37.965-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfa147f10f5ff0d0684e
+2015-09-13T13:25:38.195-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:25:47.652-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:25:47 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:25:48.614-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfac47f10f5ff0d06850
+2015-09-13T13:25:48.803-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:25:59.120-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfb647f10f5ff0d06852
+2015-09-13T13:25:59.338-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:26:09.797-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfc147f10f5ff0d06854
+2015-09-13T13:26:09.989-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:26:18.069-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:26:17 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:26:20.366-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfcb47f10f5ff0d06856
+2015-09-13T13:26:20.587-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:26:30.928-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfd647f10f5ff0d06858
+2015-09-13T13:26:31.116-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:26:41.541-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfe147f10f5ff0d0685a
+2015-09-13T13:26:41.732-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:26:48.444-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:26:48 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:26:51.950-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bfeb47f10f5ff0d0685c
+2015-09-13T13:26:52.179-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:27:02.609-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5bff647f10f5ff0d0685e
+2015-09-13T13:27:02.833-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:27:13.170-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5c00047f10f5ff0d06860
+2015-09-13T13:27:13.396-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 
+2015-09-13T13:27:18.855-0500 I SHARDING [LockPinger] cluster Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052 pinged successfully at Sun Sep 13 13:27:18 2015 by distributed lock pinger 'Anyis-MacBook-Pro.local:26050,Anyis-MacBook-Pro.local:26051,Anyis-MacBook-Pro.local:26052/Anyis-MacBook-Pro.local:27017:1442168473:16807', sleeping for 30000ms
+2015-09-13T13:27:23.766-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' acquired, ts : 55f5c00b47f10f5ff0d06862
+2015-09-13T13:27:23.955-0500 I SHARDING [Balancer] distributed lock 'balancer/Anyis-MacBook-Pro.local:27017:1442168473:16807' unlocked. 

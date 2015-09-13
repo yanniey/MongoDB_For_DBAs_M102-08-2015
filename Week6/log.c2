@@ -1,0 +1,22 @@
+2015-09-13T13:21:12.866-0500 I JOURNAL  [initandlisten] journal dir=/Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/journal
+2015-09-13T13:21:12.867-0500 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2015-09-13T13:21:12.899-0500 I JOURNAL  [durability] Durability thread started
+2015-09-13T13:21:12.899-0500 I JOURNAL  [journal writer] Journal writer thread started
+2015-09-13T13:21:12.900-0500 I CONTROL  [initandlisten] MongoDB starting : pid=1540 port=27202 dbpath=/Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2 64-bit host=Anyis-MacBook-Pro.local
+2015-09-13T13:21:12.900-0500 I CONTROL  [initandlisten] db version v3.0.3
+2015-09-13T13:21:12.900-0500 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2015-09-13T13:21:12.901-0500 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-09-13T13:21:12.901-0500 I CONTROL  [initandlisten] allocator: system
+2015-09-13T13:21:12.901-0500 I CONTROL  [initandlisten] options: { net: { port: 27202 }, processManagement: { fork: true }, replication: { oplogSizeMB: 50, replSet: "c" }, sharding: { clusterRole: "shardsvr" }, storage: { dbPath: "c2", mmapv1: { smallFiles: true } }, systemLog: { destination: "file", logAppend: true, path: "log.c2" } }
+2015-09-13T13:21:12.902-0500 I INDEX    [initandlisten] allocating new ns file /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/local.ns, filling with zeroes...
+2015-09-13T13:21:12.957-0500 I STORAGE  [FileAllocator] allocating new datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/local.0, filling with zeroes...
+2015-09-13T13:21:12.957-0500 I STORAGE  [FileAllocator] creating directory /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/_tmp
+2015-09-13T13:21:13.025-0500 I STORAGE  [FileAllocator] done allocating datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/local.0, size: 16MB,  took 0.067 secs
+2015-09-13T13:21:13.057-0500 I REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument Did not find replica set configuration document in local.system.replset
+2015-09-13T13:21:13.059-0500 I NETWORK  [initandlisten] waiting for connections on port 27202
+2015-09-13T13:24:18.609-0500 I CONTROL  ***** SERVER RESTARTED *****
+2015-09-13T13:24:18.628-0500 E NETWORK  [initandlisten] listen(): bind() failed errno:48 Address already in use for socket: 0.0.0.0:27202
+2015-09-13T13:24:18.629-0500 E NETWORK  [initandlisten]   addr already in use
+2015-09-13T13:24:18.629-0500 W -        [initandlisten] Detected unclean shutdown - /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/mongod.lock is not empty.
+2015-09-13T13:24:18.629-0500 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/c2/mongod.lock errno:35 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2015-09-13T13:24:18.629-0500 I CONTROL  [initandlisten] dbexit:  rc: 100

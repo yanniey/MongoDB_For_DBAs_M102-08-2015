@@ -1,0 +1,288 @@
+2015-09-13T13:21:11.918-0500 I JOURNAL  [initandlisten] journal dir=/Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/journal
+2015-09-13T13:21:11.919-0500 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2015-09-13T13:21:11.962-0500 I JOURNAL  [durability] Durability thread started
+2015-09-13T13:21:11.962-0500 I JOURNAL  [journal writer] Journal writer thread started
+2015-09-13T13:21:11.963-0500 I CONTROL  [initandlisten] MongoDB starting : pid=1510 port=26051 dbpath=/Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1 master=1 64-bit host=Anyis-MacBook-Pro.local
+2015-09-13T13:21:11.963-0500 I CONTROL  [initandlisten] db version v3.0.3
+2015-09-13T13:21:11.963-0500 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2015-09-13T13:21:11.963-0500 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-09-13T13:21:11.963-0500 I CONTROL  [initandlisten] allocator: system
+2015-09-13T13:21:11.964-0500 I CONTROL  [initandlisten] options: { net: { port: 26051 }, processManagement: { fork: true }, sharding: { clusterRole: "configsvr" }, storage: { dbPath: "cfg1" }, systemLog: { destination: "file", logAppend: true, path: "log.cfg1" } }
+2015-09-13T13:21:11.964-0500 I INDEX    [initandlisten] allocating new ns file /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/local.ns, filling with zeroes...
+2015-09-13T13:21:12.036-0500 I STORAGE  [FileAllocator] allocating new datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/local.0, filling with zeroes...
+2015-09-13T13:21:12.036-0500 I STORAGE  [FileAllocator] creating directory /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/_tmp
+2015-09-13T13:21:12.081-0500 I STORAGE  [FileAllocator] done allocating datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/local.0, size: 16MB,  took 0.044 secs
+2015-09-13T13:21:12.117-0500 I REPL     [initandlisten] ******
+2015-09-13T13:21:12.118-0500 I REPL     [initandlisten] creating replication oplog of size: 5MB...
+2015-09-13T13:21:12.122-0500 I REPL     [initandlisten] ******
+2015-09-13T13:21:12.124-0500 I NETWORK  [initandlisten] waiting for connections on port 26051
+2015-09-13T13:21:13.510-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53790 #1 (1 connection now open)
+2015-09-13T13:21:13.513-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53793 #2 (2 connections now open)
+2015-09-13T13:21:13.611-0500 I NETWORK  [conn2] end connection 192.168.1.128:53793 (1 connection now open)
+2015-09-13T13:21:13.613-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53796 #3 (2 connections now open)
+2015-09-13T13:21:13.619-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53800 #4 (3 connections now open)
+2015-09-13T13:21:13.620-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53801 #5 (4 connections now open)
+2015-09-13T13:21:13.724-0500 I INDEX    [conn5] allocating new ns file /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/config.ns, filling with zeroes...
+2015-09-13T13:21:13.937-0500 I STORAGE  [FileAllocator] allocating new datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/config.0, filling with zeroes...
+2015-09-13T13:21:14.017-0500 I STORAGE  [FileAllocator] done allocating datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/config.0, size: 16MB,  took 0.078 secs
+2015-09-13T13:21:14.561-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53805 #6 (5 connections now open)
+2015-09-13T13:21:14.562-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.571-0500 I SHARDING [conn6] first cluster operation detected, adding sharding hook to enable versioning and authentication to remote servers
+2015-09-13T13:21:14.572-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.586-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.597-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53808 #7 (6 connections now open)
+2015-09-13T13:21:14.813-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.822-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.833-0500 I INDEX    [conn6] build index on: config.chunks properties: { v: 1, unique: true, key: { ns: 1, min: 1 }, name: "ns_1_min_1", ns: "config.chunks" }
+2015-09-13T13:21:14.833-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.834-0500 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2015-09-13T13:21:14.835-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.844-0500 I INDEX    [conn6] build index on: config.chunks properties: { v: 1, unique: true, key: { ns: 1, shard: 1, min: 1 }, name: "ns_1_shard_1_min_1", ns: "config.chunks" }
+2015-09-13T13:21:14.844-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.845-0500 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2015-09-13T13:21:14.845-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.854-0500 I INDEX    [conn6] build index on: config.chunks properties: { v: 1, unique: true, key: { ns: 1, lastmod: 1 }, name: "ns_1_lastmod_1", ns: "config.chunks" }
+2015-09-13T13:21:14.855-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.855-0500 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2015-09-13T13:21:14.856-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.867-0500 I INDEX    [conn6] build index on: config.shards properties: { v: 1, unique: true, key: { host: 1 }, name: "host_1", ns: "config.shards" }
+2015-09-13T13:21:14.867-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.867-0500 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2015-09-13T13:21:14.868-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.877-0500 I INDEX    [conn6] build index on: config.locks properties: { v: 1, key: { ts: 1 }, name: "ts_1", ns: "config.locks" }
+2015-09-13T13:21:14.877-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.878-0500 I INDEX    [conn6] build index done.  scanned 1 total records. 0 secs
+2015-09-13T13:21:14.878-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.887-0500 I INDEX    [conn6] build index on: config.locks properties: { v: 1, key: { state: 1, process: 1 }, name: "state_1_process_1", ns: "config.locks" }
+2015-09-13T13:21:14.888-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.888-0500 I INDEX    [conn6] build index done.  scanned 1 total records. 0 secs
+2015-09-13T13:21:14.889-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.898-0500 I INDEX    [conn6] build index on: config.lockpings properties: { v: 1, key: { ping: 1 }, name: "ping_1", ns: "config.lockpings" }
+2015-09-13T13:21:14.898-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.899-0500 I INDEX    [conn6] build index done.  scanned 1 total records. 0 secs
+2015-09-13T13:21:14.899-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.909-0500 I INDEX    [conn6] build index on: config.tags properties: { v: 1, unique: true, key: { ns: 1, min: 1 }, name: "ns_1_min_1", ns: "config.tags" }
+2015-09-13T13:21:14.910-0500 I INDEX    [conn6] 	 building index using bulk method
+2015-09-13T13:21:14.911-0500 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2015-09-13T13:21:14.940-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53811 #8 (7 connections now open)
+2015-09-13T13:21:14.948-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53814 #9 (8 connections now open)
+2015-09-13T13:21:14.952-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53817 #10 (9 connections now open)
+2015-09-13T13:21:14.952-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.963-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.975-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.982-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.987-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.993-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:14.998-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.005-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.013-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53820 #11 (10 connections now open)
+2015-09-13T13:21:15.019-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53823 #12 (11 connections now open)
+2015-09-13T13:21:15.031-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53826 #13 (12 connections now open)
+2015-09-13T13:21:15.041-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53829 #14 (13 connections now open)
+2015-09-13T13:21:15.046-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53832 #15 (14 connections now open)
+2015-09-13T13:21:15.049-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53835 #16 (15 connections now open)
+2015-09-13T13:21:15.050-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.060-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.070-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.077-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.082-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.088-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.095-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.102-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.111-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53838 #17 (16 connections now open)
+2015-09-13T13:21:15.114-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53841 #18 (17 connections now open)
+2015-09-13T13:21:15.128-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53844 #19 (18 connections now open)
+2015-09-13T13:21:15.138-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53847 #20 (19 connections now open)
+2015-09-13T13:21:15.144-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53850 #21 (20 connections now open)
+2015-09-13T13:21:15.148-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53853 #22 (21 connections now open)
+2015-09-13T13:21:15.149-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.158-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.170-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.179-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.187-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.192-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.193-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.199-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.205-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:15.215-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53856 #23 (22 connections now open)
+2015-09-13T13:21:15.220-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53859 #24 (23 connections now open)
+2015-09-13T13:21:15.226-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53862 #25 (24 connections now open)
+2015-09-13T13:21:25.603-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:35.825-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:45.731-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53871 #26 (25 connections now open)
+2015-09-13T13:21:45.929-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:55.737-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:21:56.302-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:06.401-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:16.504-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:17.027-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:26.641-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:27.465-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:36.873-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:37.997-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:47.117-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:48.609-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:57.342-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:22:59.206-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:07.396-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:07.999-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:09.859-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:17.736-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:18.422-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:20.429-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:28.084-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:28.949-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:31.023-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:38.342-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:39.617-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:41.530-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:48.746-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:50.227-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:52.103-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:23:59.008-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:00.741-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:02.788-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:09.419-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:11.424-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:13.343-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:18.220-0500 I CONTROL  ***** SERVER RESTARTED *****
+2015-09-13T13:24:18.238-0500 E NETWORK  [initandlisten] listen(): bind() failed errno:48 Address already in use for socket: 0.0.0.0:26051
+2015-09-13T13:24:18.238-0500 E NETWORK  [initandlisten]   addr already in use
+2015-09-13T13:24:18.238-0500 W -        [initandlisten] Detected unclean shutdown - /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/mongod.lock is not empty.
+2015-09-13T13:24:18.239-0500 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6/cfg1/mongod.lock errno:35 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2015-09-13T13:24:18.239-0500 I CONTROL  [initandlisten] dbexit:  rc: 100
+2015-09-13T13:24:19.383-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53890 #27 (26 connections now open)
+2015-09-13T13:24:19.397-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.401-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53893 #28 (27 connections now open)
+2015-09-13T13:24:19.406-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53896 #29 (28 connections now open)
+2015-09-13T13:24:19.407-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.415-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.420-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.426-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.433-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.438-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.444-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.451-0500 I STORAGE  [conn29] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.459-0500 I NETWORK  [conn29] end connection 192.168.1.128:53896 (27 connections now open)
+2015-09-13T13:24:19.459-0500 I NETWORK  [conn28] end connection 192.168.1.128:53893 (27 connections now open)
+2015-09-13T13:24:19.459-0500 I NETWORK  [conn27] end connection 192.168.1.128:53890 (27 connections now open)
+2015-09-13T13:24:19.487-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53899 #30 (26 connections now open)
+2015-09-13T13:24:19.491-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53902 #31 (27 connections now open)
+2015-09-13T13:24:19.494-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53905 #32 (28 connections now open)
+2015-09-13T13:24:19.494-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.500-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.505-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.510-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.515-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.520-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.525-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.529-0500 I STORAGE  [conn32] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.537-0500 I NETWORK  [conn32] end connection 192.168.1.128:53905 (27 connections now open)
+2015-09-13T13:24:19.538-0500 I NETWORK  [conn31] end connection 192.168.1.128:53902 (26 connections now open)
+2015-09-13T13:24:19.539-0500 I NETWORK  [conn30] end connection 192.168.1.128:53899 (25 connections now open)
+2015-09-13T13:24:19.565-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53908 #33 (26 connections now open)
+2015-09-13T13:24:19.571-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53911 #34 (27 connections now open)
+2015-09-13T13:24:19.574-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53914 #35 (28 connections now open)
+2015-09-13T13:24:19.575-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.581-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.586-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.591-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.596-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.600-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.605-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.610-0500 I STORAGE  [conn35] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.618-0500 I NETWORK  [conn35] end connection 192.168.1.128:53914 (27 connections now open)
+2015-09-13T13:24:19.618-0500 I NETWORK  [conn34] end connection 192.168.1.128:53911 (27 connections now open)
+2015-09-13T13:24:19.618-0500 I NETWORK  [conn33] end connection 192.168.1.128:53908 (27 connections now open)
+2015-09-13T13:24:19.648-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53917 #36 (26 connections now open)
+2015-09-13T13:24:19.652-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53920 #37 (27 connections now open)
+2015-09-13T13:24:19.655-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53923 #38 (28 connections now open)
+2015-09-13T13:24:19.655-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.663-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.670-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.677-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.685-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.691-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.698-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.703-0500 I STORAGE  [conn38] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:19.714-0500 I NETWORK  [conn38] end connection 192.168.1.128:53923 (27 connections now open)
+2015-09-13T13:24:19.714-0500 I NETWORK  [conn37] end connection 192.168.1.128:53920 (26 connections now open)
+2015-09-13T13:24:19.715-0500 I NETWORK  [conn36] end connection 192.168.1.128:53917 (26 connections now open)
+2015-09-13T13:24:19.777-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:22.089-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:23.876-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:29.870-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:30.320-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:32.737-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:34.369-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:40.390-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:40.997-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:43.339-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:44.941-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:44.948-0500 I NETWORK  [initandlisten] connection accepted from 192.168.1.128:53932 #39 (26 connections now open)
+2015-09-13T13:24:50.789-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:51.669-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:54.018-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:24:55.704-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:01.277-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:02.213-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:04.671-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:06.204-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:11.663-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:12.877-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:15.237-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:16.816-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:22.308-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:23.544-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:25.908-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:27.455-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:32.810-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:34.203-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:36.409-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:37.966-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:43.323-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:44.668-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:46.911-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:48.615-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:53.823-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:55.221-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:57.557-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:25:59.121-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:04.346-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:05.610-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:08.083-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:09.798-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:15.047-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:16.198-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:18.740-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:18.929-0500 I COMMAND  [conn17] command admin.$cmd command: getLastError { getlasterror: 1, fsync: 1 } ntoreturn:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:122 locks:{} 111ms
+2015-09-13T13:26:18.929-0500 I COMMAND  [conn9] command admin.$cmd command: getLastError { getlasterror: 1, fsync: 1 } ntoreturn:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:122 locks:{} 111ms
+2015-09-13T13:26:20.367-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:25.607-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:26.729-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:29.323-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:30.929-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:36.267-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:37.250-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:39.763-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:41.542-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:46.920-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:47.916-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:48.215-0500 I COMMAND  [conn5] command admin.$cmd command: getLastError { getlasterror: 1, fsync: 1 } ntoreturn:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:122 locks:{} 111ms
+2015-09-13T13:26:50.135-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:51.951-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:57.599-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:26:58.581-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:00.775-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:02.610-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:08.158-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:09.187-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:11.314-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:13.171-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:18.776-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:19.689-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:21.896-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:23.767-0500 I STORAGE  [conn6] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:29.406-0500 I STORAGE  [conn16] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:30.200-0500 I STORAGE  [conn10] CMD fsync: sync:1 lock:0
+2015-09-13T13:27:32.539-0500 I STORAGE  [conn22] CMD fsync: sync:1 lock:0
