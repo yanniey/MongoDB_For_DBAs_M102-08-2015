@@ -2,8 +2,67 @@
 
 August 2015 with MongoD Version 3.0.3
 
+
+---
+## Week7: Security
+
+Two ways to authenticate:
+
++ Run `mongos` and `mongod` with `--auth`
++ Use `--keyFile`
+
+```
+mkdir data
+mongod --path data --auth
+```
+then in another shell:
+
+```
+mongo localhost/test
+```
+
+Use `admin` database to manage accounts, 1) create a user, 2) authenticate it 
+
+```
+use admin
+var me = {user: "anyi", pwd:"asdf",roles:["userAdminAnyDatabase"]}
+db.createUser(me)
+```
+
+Exit mongo, then log in again as the newly created user. This admin user can access the `admin` db, but cannot read or write the other dbs:
+
+```
+mongo localhost/admin -u anyi -p asdf
+```
+
+Create another user that can read and writer other dbs:
+
+```
+var a = {user: "anyi_rw", roles:"readWriteAnyDatabase", pwd:"abc"}
+db.createUser(a)
+```
+
+Create a user that can read and write only one (the current) database
+
+```
+var b = {user: "anyi_rw_only", pwd:"asdf",roles:["readWrite"]}
+db.crteaUser(b)
+```
+
+
 ---
 ## Week 6: Scalability (Sharding/Partitioning)
+
+1. Initiate shards, replica sets, config servers/dbs, 
+2. Initiate on 1 replSet server, then add the other 2 servers to the replSet 
+3. Add shard to cluster
+4. Check to make sure that shards are added to cluster by using 
+
+```
+use config
+db.shards.find()
+
+```
 
 range-based("chunk", ~100MB each) partitioning
 
@@ -120,7 +179,384 @@ In general, you don't want the clients to talk directly to the shard servers. Al
 
 You can have as many `mongos` processes as you want, but generally more than 1.
 
+## The Config Database
 
+All config servers have exactly the same data.
+
+Note: be sure to connect to `mongos` by either using the default port or specifying the port
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6$ mongo
+MongoDB shell version: 3.0.3
+connecting to: test
+mongos> use config
+switched to db config
+mongos> db
+config
+mongos> show collections
+actionlog
+changelog
+chunks
+databases
+lockpings
+locks
+mongos
+settings
+shards
+system.indexes
+tags
+version
+```
+
+## Adding the Intial Shards
+
++ First, initiate the replica set(initate on 1 server, then add the other 2)
++ add the shard by `sh.addShard()`
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6$ mongo --port 27000
+MongoDB shell version: 3.0.3
+connecting to: 127.0.0.1:27000/test
+
+> rs.status()
+{
+	"info" : "run rs.initiate(...) if not yet done for the set",
+	"ok" : 0,
+	"errmsg" : "no replset config has been received",
+	"code" : 94
+}
+
+> rs.initiate()
+{
+	"info2" : "no configuration explicitly specified -- making one",
+	"me" : "Anyis-MacBook-Pro.local:27000",
+	"ok" : 1
+}
+a:OTHER> rs.status()
+{
+	"set" : "a",
+	"date" : ISODate("2015-09-13T19:04:29.508Z"),
+	"myState" : 1,
+	"members" : [
+		{
+			"_id" : 0,
+			"name" : "Anyis-MacBook-Pro.local:27000",
+			"health" : 1,
+			"state" : 1,
+			"stateStr" : "PRIMARY",
+			"uptime" : 2597,
+			"optime" : Timestamp(1442171063, 1),
+			"optimeDate" : ISODate("2015-09-13T19:04:23Z"),
+			"electionTime" : Timestamp(1442171063, 2),
+			"electionDate" : ISODate("2015-09-13T19:04:23Z"),
+			"configVersion" : 1,
+			"self" : true
+		}
+	],
+	"ok" : 1
+}
+
+a:PRIMARY> rs.add("Anyis-MacBook-Pro.local:27001")
+{ "ok" : 1 }
+a:PRIMARY> rs.add("Anyis-MacBook-Pro.local:27002")
+{ "ok" : 1 }
+
+a:PRIMARY> rs.status()
+{
+	"set" : "a",
+	"date" : ISODate("2015-09-13T19:05:08.462Z"),
+	"myState" : 1,
+	"members" : [
+		{
+			"_id" : 0,
+			"name" : "Anyis-MacBook-Pro.local:27000",
+			"health" : 1,
+			"state" : 1,
+			"stateStr" : "PRIMARY",
+			"uptime" : 2636,
+			"optime" : Timestamp(1442171105, 1),
+			"optimeDate" : ISODate("2015-09-13T19:05:05Z"),
+			"electionTime" : Timestamp(1442171063, 2),
+			"electionDate" : ISODate("2015-09-13T19:04:23Z"),
+			"configVersion" : 3,
+			"self" : true
+		},
+		{
+			"_id" : 1,
+			"name" : "Anyis-MacBook-Pro.local:27001",
+			"health" : 1,
+			"state" : 2,
+			"stateStr" : "SECONDARY",
+			"uptime" : 6,
+			"optime" : Timestamp(1442171105, 1),
+			"optimeDate" : ISODate("2015-09-13T19:05:05Z"),
+			"lastHeartbeat" : ISODate("2015-09-13T19:05:07.192Z"),
+			"lastHeartbeatRecv" : ISODate("2015-09-13T19:05:07.632Z"),
+			"pingMs" : 0,
+			"syncingTo" : "Anyis-MacBook-Pro.local:27000",
+			"configVersion" : 3
+		},
+		{
+			"_id" : 2,
+			"name" : "Anyis-MacBook-Pro.local:27002",
+			"health" : 1,
+			"state" : 5,
+			"stateStr" : "STARTUP2",
+			"uptime" : 3,
+			"optime" : Timestamp(0, 0),
+			"optimeDate" : ISODate("1970-01-01T00:00:00Z"),
+			"lastHeartbeat" : ISODate("2015-09-13T19:05:07.192Z"),
+			"lastHeartbeatRecv" : ISODate("2015-09-13T19:05:07.197Z"),
+			"pingMs" : 0,
+			"configVersion" : 3
+		}
+	],
+	"ok" : 1
+}
+
+
+a:PRIMARY> rs.conf()
+{
+	"_id" : "a",
+	"version" : 3,
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "Anyis-MacBook-Pro.local:27000",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		},
+		{
+			"_id" : 1,
+			"host" : "Anyis-MacBook-Pro.local:27001",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		},
+		{
+			"_id" : 2,
+			"host" : "Anyis-MacBook-Pro.local:27002",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : 0,
+			"votes" : 1
+		}
+	],
+	"settings" : {
+		"chainingAllowed" : true,
+		"heartbeatTimeoutSecs" : 10,
+		"getLastErrorModes" : {
+
+		},
+		"getLastErrorDefaults" : {
+			"w" : 1,
+			"wtimeout" : 0
+		}
+	}
+}
+```
+
+# adding shard to cluster
+
+```
+mongos> sh.addShard("a/Anyis-MacBook-Pro.local:27000")
+{ "shardAdded" : "a", "ok" : 1 }
+```
+
+```
+# check to see if the shard has been added to the cluster
+
+mongos> sh.status()
+--- Sharding Status ---
+  sharding version: {
+	"_id" : 1,
+	"minCompatibleVersion" : 5,
+	"currentVersion" : 6,
+	"clusterId" : ObjectId("55f5be9a47f10f5ff0d0681e")
+}
+  shards:
+	{  "_id" : "a",  "host" : "a/Anyis-MacBook-Pro.local:27000,Anyis-MacBook-Pro.local:27001,Anyis-MacBook-Pro.local:27002" }
+  balancer:
+	Currently enabled:  yes
+	Currently running:  no
+	Failed balancer rounds in last 5 attempts:  0
+	Migration Results for the last 24 hours:
+		No recent migrations
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+
+```
+
+## Use `setup_script.js` to batch add shard to cluster
+
+```
+Anyi@Anyis-MacBook-Pro:~/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Week6$ mongo --shell setup_script.js
+MongoDB shell version: 3.0.3
+connecting to: test
+type "help" for help
+setup.js loaded.
+list of existing shards before doing anything:
+[
+	{
+		"_id" : "a",
+		"host" : "a/Anyis-MacBook-Pro.local:27000,Anyis-MacBook-Pro.local:27001,Anyis-MacBook-Pro.local:27002"
+	}
+]
+
+You can invoke:
+ourAddShard(setname,port)
+
+
+
+mongos> ourAddShard("b",27100)
+connecting to: localhost:27100/test
+undefined
+{ "ok" : 1 }
+waiting for repl set initiate to complete...
+adding shard...
+{ "shardAdded" : "b", "ok" : 1 }
+done; run sh.status()
+
+
+
+mongos> ourAddShard("c",27200)
+connecting to: localhost:27200/test
+undefined
+{ "ok" : 1 }
+waiting for repl set initiate to complete...
+adding shard...
+{ "shardAdded" : "c", "ok" : 1 }
+done; run sh.status()
+
+mongos> sh.status()
+--- Sharding Status ---
+  sharding version: {
+	"_id" : 1,
+	"minCompatibleVersion" : 5,
+	"currentVersion" : 6,
+	"clusterId" : ObjectId("55f5be9a47f10f5ff0d0681e")
+}
+  shards:
+	{  "_id" : "a",  "host" : "a/Anyis-MacBook-Pro.local:27000,Anyis-MacBook-Pro.local:27001,Anyis-MacBook-Pro.local:27002" }
+	{  "_id" : "b",  "host" : "b/Anyis-MacBook-Pro.local:27100,Anyis-MacBook-Pro.local:27101,Anyis-MacBook-Pro.local:27102" }
+	{  "_id" : "c",  "host" : "c/Anyis-MacBook-Pro.local:27200,Anyis-MacBook-Pro.local:27201,Anyis-MacBook-Pro.local:27202" }
+  balancer:
+	Currently enabled:  yes
+	Currently running:  no
+	Failed balancer rounds in last 5 attempts:  0
+	Migration Results for the last 24 hours:
+		No recent migrations
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+
+
+mongos> ourAddShard("d",27300)
+connecting to: localhost:27300/test
+undefined
+{ "ok" : 1 }
+waiting for repl set initiate to complete...
+adding shard...
+{ "shardAdded" : "d", "ok" : 1 }
+done; run sh.status()
+mongos> sh.status()
+--- Sharding Status ---
+  sharding version: {
+	"_id" : 1,
+	"minCompatibleVersion" : 5,
+	"currentVersion" : 6,
+	"clusterId" : ObjectId("55f5be9a47f10f5ff0d0681e")
+}
+  shards:
+	{  "_id" : "a",  "host" : "a/Anyis-MacBook-Pro.local:27000,Anyis-MacBook-Pro.local:27001,Anyis-MacBook-Pro.local:27002" }
+	{  "_id" : "b",  "host" : "b/Anyis-MacBook-Pro.local:27100,Anyis-MacBook-Pro.local:27101,Anyis-MacBook-Pro.local:27102" }
+	{  "_id" : "c",  "host" : "c/Anyis-MacBook-Pro.local:27200,Anyis-MacBook-Pro.local:27201,Anyis-MacBook-Pro.local:27202" }
+	{  "_id" : "d",  "host" : "d/Anyis-MacBook-Pro.local:27300,Anyis-MacBook-Pro.local:27301,Anyis-MacBook-Pro.local:27302" }
+  balancer:
+	Currently enabled:  yes
+	Currently running:  no
+	Failed balancer rounds in last 5 attempts:  0
+	Migration Results for the last 24 hours:
+		No recent migrations
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+
+```
+
+Check the config server to make sure that shards are added to the cluster
+
+```
+mongos> use config
+switched to db config
+mongos> show collections
+actionlog
+changelog
+chunks
+databases
+lockpings
+locks
+mongos
+settings
+shards
+system.indexes
+tags
+version
+mongos> db.shards.find()
+{ "_id" : "a", "host" : "a/Anyis-MacBook-Pro.local:27000,Anyis-MacBook-Pro.local:27001,Anyis-MacBook-Pro.local:27002" }
+{ "_id" : "b", "host" : "b/Anyis-MacBook-Pro.local:27100,Anyis-MacBook-Pro.local:27101,Anyis-MacBook-Pro.local:27102" }
+{ "_id" : "c", "host" : "c/Anyis-MacBook-Pro.local:27200,Anyis-MacBook-Pro.local:27201,Anyis-MacBook-Pro.local:27202" }
+{ "_id" : "d", "host" : "d/Anyis-MacBook-Pro.local:27300,Anyis-MacBook-Pro.local:27301,Anyis-MacBook-Pro.local:27302" }
+```
+
+## Enable sharding on the DB
+
+```
+mongos> db
+test
+mongos> sh.enableSharding("test")
+{ "ok" : 1 }
+mongos> sh.enableSharding("test")
+{ "ok" : 0, "errmsg" : "already enabled" }
+mongos> sh.status()
+--- Sharding Status ---
+  sharding version: {
+	"_id" : 1,
+	"minCompatibleVersion" : 5,
+	"currentVersion" : 6,
+	"clusterId" : ObjectId("55f5be9a47f10f5ff0d0681e")
+}
+  shards:
+	{  "_id" : "a",  "host" : "a/Anyis-MacBook-Pro.local:27000,Anyis-MacBook-Pro.local:27001,Anyis-MacBook-Pro.local:27002" }
+	{  "_id" : "b",  "host" : "b/Anyis-MacBook-Pro.local:27100,Anyis-MacBook-Pro.local:27101,Anyis-MacBook-Pro.local:27102" }
+	{  "_id" : "c",  "host" : "c/Anyis-MacBook-Pro.local:27200,Anyis-MacBook-Pro.local:27201,Anyis-MacBook-Pro.local:27202" }
+	{  "_id" : "d",  "host" : "d/Anyis-MacBook-Pro.local:27300,Anyis-MacBook-Pro.local:27301,Anyis-MacBook-Pro.local:27302" }
+  balancer:
+	Currently enabled:  yes
+	Currently running:  no
+	Failed balancer rounds in last 5 attempts:  0
+	Migration Results for the last 24 hours:
+		No recent migrations
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test",  "partitioned" : true,  "primary" : "a" }
+```
 ---
 
 ## Week 5: Replication Part 2
