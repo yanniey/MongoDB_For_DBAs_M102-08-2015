@@ -1,0 +1,2 @@
+2015-09-19T23:14:44.018+0100 I STORAGE  [initandlisten] exception in initAndListen: 29 Data directory /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/data/z1 not found., terminating
+2015-09-19T23:14:44.018+0100 I CONTROL  [initandlisten] dbexit:  rc: 100

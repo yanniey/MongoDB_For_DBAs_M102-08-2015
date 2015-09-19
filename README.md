@@ -1,15 +1,17 @@
-# M102: MongoDB for DBAs
+# M102P: MongoDB for DBAs
 
 August 2015 with MongoD Version 3.0.3
 
-
 ---
-## Week7: Security
+## Week 7: Security
 
 Two ways to authenticate:
 
 + Run `mongos` and `mongod` with `--auth`
 + Use `--keyFile`
+
+
+### Using `--auth` for authentication
 
 ```
 mkdir data
@@ -47,6 +49,73 @@ Create a user that can read and write only one (the current) database
 ```
 var b = {user: "anyi_rw_only", pwd:"asdf",roles:["readWrite"]}
 db.crteaUser(b)
+```
+
+
+### Using keyfile for authentication
+
+```
+touch keyfile
+chmod 600 keyfile
+openssl rand -base64 60 >> keyfile
+```
+
+Then open `mongod`
+
+```
+mongod --dbpath data --auth --replSet z --keyFile keyfile
+```
+
+I'm a bit lost for the rest of the video. Just to rewatch it. [Link](https://university.mongodb.com/courses/MongoDB/M102/2015_August/courseware/Chapter_7_Backup_and_Recovery/539f500a8bb48b73f4d45f94)
+
+### Backup and Restoration
+
+Methods: 
+
++ mongodump + mongorestore
++ filesystem snapshot
++ backup from secondary shards
+
+#### mongodump
+
+```
+mongodump --oplog
+mongorestore --oplogReplay
+```
+
+#### filesystem snapshotting
+
+Didn't understand this part too :O
+
+#### backing up from secondary shards
+
+1. turn off balancer
+
+```
+mongo --host some_mongos --eval "sh.stopBalancer()"
+```
+
+2. back up config db
+
+```
+mongodump --host some_mongos_or_some_config_server --db config /backups/cluster1/configdb
+```
+
+3. back up each shard's replSet
+
+```
+mongodump --host shard1_svr1 --oplog /backups/cluster1/shard1
+mongodump --host shard2_svr1 --oplog /backups/cluster1/shard2
+mongodump --host shard3_svr1 --oplog /backups/cluster1/shard3
+mongodump --host shard4_svr1 --oplog /backups/cluster1/shard4
+mongodump --host shard5_svr1 --oplog /backups/cluster1/shard5
+mongodump --host shard6_svr1 --oplog /backups/cluster1/shard6
+```
+
+4. turn the balancer back on
+
+```
+mongo --host some_mongos --eval "sh.startBalancer()"
 ```
 
 

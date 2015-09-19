@@ -1,0 +1,124 @@
+2015-09-19T23:05:32.313+0100 I JOURNAL  [initandlisten] journal dir=/Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/journal
+2015-09-19T23:05:32.314+0100 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2015-09-19T23:05:32.344+0100 I JOURNAL  [durability] Durability thread started
+2015-09-19T23:05:32.344+0100 I JOURNAL  [journal writer] Journal writer thread started
+2015-09-19T23:05:32.345+0100 I CONTROL  [initandlisten] MongoDB starting : pid=20088 port=27001 dbpath=/Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1 64-bit host=Anyis-MacBook-Pro.local
+2015-09-19T23:05:32.345+0100 I CONTROL  [initandlisten] db version v3.0.3
+2015-09-19T23:05:32.345+0100 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2015-09-19T23:05:32.345+0100 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-09-19T23:05:32.345+0100 I CONTROL  [initandlisten] allocator: system
+2015-09-19T23:05:32.345+0100 I CONTROL  [initandlisten] options: { net: { port: 27001 }, processManagement: { fork: true }, replication: { oplogSizeMB: 50, replSet: "z" }, storage: { dbPath: "data/z1", mmapv1: { smallFiles: true } }, systemLog: { destination: "file", path: "a.log" } }
+2015-09-19T23:05:32.349+0100 I INDEX    [initandlisten] allocating new ns file /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/local.ns, filling with zeroes...
+2015-09-19T23:05:32.413+0100 I STORAGE  [FileAllocator] allocating new datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/local.0, filling with zeroes...
+2015-09-19T23:05:32.413+0100 I STORAGE  [FileAllocator] creating directory /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/_tmp
+2015-09-19T23:05:32.475+0100 I STORAGE  [FileAllocator] done allocating datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/local.0, size: 16MB,  took 0.062 secs
+2015-09-19T23:05:32.507+0100 I REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument Did not find replica set configuration document in local.system.replset
+2015-09-19T23:05:32.509+0100 I NETWORK  [initandlisten] waiting for connections on port 27001
+2015-09-19T23:06:16.578+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57513 #1 (1 connection now open)
+2015-09-19T23:06:16.581+0100 I NETWORK  [conn1] end connection 127.0.0.1:57513 (0 connections now open)
+2015-09-19T23:06:16.581+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57515 #2 (2 connections now open)
+2015-09-19T23:06:18.587+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57519 #3 (2 connections now open)
+2015-09-19T23:06:18.588+0100 I NETWORK  [conn3] end connection 127.0.0.1:57519 (1 connection now open)
+2015-09-19T23:06:18.591+0100 I REPL     [WriteReplSetConfig] Starting replication applier threads
+2015-09-19T23:06:18.592+0100 I REPL     [rsSync] replSet warning did not receive a valid config yet, sleeping 5 seconds 
+2015-09-19T23:06:18.592+0100 I REPL     [ReplicationExecutor] New replica set config in use: { _id: "z", version: 1, members: [ { _id: 1, host: "localhost:27001", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "localhost:27002", arbiterOnly: true, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 3, host: "localhost:27003", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatTimeoutSecs: 10, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 } } }
+2015-09-19T23:06:18.592+0100 I REPL     [ReplicationExecutor] This node is localhost:27001 in the config
+2015-09-19T23:06:18.593+0100 I REPL     [ReplicationExecutor] transition to STARTUP2
+2015-09-19T23:06:18.594+0100 I REPL     [ReplicationExecutor] Member localhost:27003 is now in state SECONDARY
+2015-09-19T23:06:18.594+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57524 #4 (2 connections now open)
+2015-09-19T23:06:18.595+0100 I REPL     [ReplicationExecutor] Member localhost:27002 is now in state ARBITER
+2015-09-19T23:06:20.592+0100 I REPL     [ReplicationExecutor] replSetElect voting yea for localhost:27003 (3)
+2015-09-19T23:06:20.595+0100 I REPL     [ReplicationExecutor] Member localhost:27003 is now in state PRIMARY
+2015-09-19T23:06:23.597+0100 I REPL     [rsSync] ******
+2015-09-19T23:06:23.598+0100 I REPL     [rsSync] creating replication oplog of size: 50MB...
+2015-09-19T23:06:23.599+0100 I STORAGE  [FileAllocator] allocating new datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/local.1, filling with zeroes...
+2015-09-19T23:06:23.786+0100 I STORAGE  [FileAllocator] done allocating datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/local.1, size: 64MB,  took 0.187 secs
+2015-09-19T23:06:23.804+0100 I REPL     [rsSync] ******
+2015-09-19T23:06:23.805+0100 I REPL     [rsSync] initial sync pending
+2015-09-19T23:06:23.805+0100 I REPL     [ReplicationExecutor] syncing from: localhost:27003
+2015-09-19T23:06:23.808+0100 I REPL     [rsSync] initial sync drop all databases
+2015-09-19T23:06:23.808+0100 I STORAGE  [rsSync] dropAllDatabasesExceptLocal 1
+2015-09-19T23:06:23.808+0100 I REPL     [rsSync] initial sync clone all databases
+2015-09-19T23:06:23.809+0100 I REPL     [rsSync] initial sync data copy, starting syncup
+2015-09-19T23:06:23.809+0100 I REPL     [rsSync] oplog sync 1 of 3
+2015-09-19T23:06:23.809+0100 I REPL     [rsSync] oplog sync 2 of 3
+2015-09-19T23:06:23.810+0100 I REPL     [rsSync] initial sync building indexes
+2015-09-19T23:06:23.810+0100 I REPL     [rsSync] oplog sync 3 of 3
+2015-09-19T23:06:23.810+0100 I REPL     [rsSync] initial sync finishing up
+2015-09-19T23:06:23.811+0100 I REPL     [rsSync] replSet set minValid=55fddc58:1
+2015-09-19T23:06:23.811+0100 I REPL     [rsSync] initial sync done
+2015-09-19T23:06:23.814+0100 I REPL     [ReplicationExecutor] transition to RECOVERING
+2015-09-19T23:06:23.815+0100 I REPL     [ReplicationExecutor] transition to SECONDARY
+2015-09-19T23:06:24.614+0100 I REPL     [ReplicationExecutor] could not find member to sync from
+2015-09-19T23:06:46.644+0100 I NETWORK  [conn2] end connection 127.0.0.1:57515 (1 connection now open)
+2015-09-19T23:06:46.645+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57530 #5 (2 connections now open)
+2015-09-19T23:06:48.646+0100 I NETWORK  [conn4] end connection 127.0.0.1:57524 (1 connection now open)
+2015-09-19T23:06:48.646+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57533 #6 (3 connections now open)
+2015-09-19T23:07:16.709+0100 I NETWORK  [conn5] end connection 127.0.0.1:57530 (1 connection now open)
+2015-09-19T23:07:16.711+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57551 #7 (2 connections now open)
+2015-09-19T23:07:18.715+0100 I NETWORK  [conn6] end connection 127.0.0.1:57533 (1 connection now open)
+2015-09-19T23:07:18.716+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57555 #8 (2 connections now open)
+2015-09-19T23:07:46.779+0100 I NETWORK  [conn7] end connection 127.0.0.1:57551 (1 connection now open)
+2015-09-19T23:07:46.780+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57561 #9 (2 connections now open)
+2015-09-19T23:07:48.783+0100 I NETWORK  [conn8] end connection 127.0.0.1:57555 (1 connection now open)
+2015-09-19T23:07:48.784+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57563 #10 (3 connections now open)
+2015-09-19T23:08:16.839+0100 I NETWORK  [conn9] end connection 127.0.0.1:57561 (1 connection now open)
+2015-09-19T23:08:16.840+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57564 #11 (3 connections now open)
+2015-09-19T23:08:18.845+0100 I NETWORK  [conn10] end connection 127.0.0.1:57563 (1 connection now open)
+2015-09-19T23:08:18.846+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57569 #12 (3 connections now open)
+2015-09-19T23:08:46.900+0100 I NETWORK  [conn11] end connection 127.0.0.1:57564 (1 connection now open)
+2015-09-19T23:08:46.901+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57577 #13 (3 connections now open)
+2015-09-19T23:08:48.904+0100 I NETWORK  [conn12] end connection 127.0.0.1:57569 (1 connection now open)
+2015-09-19T23:08:48.905+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57578 #14 (3 connections now open)
+2015-09-19T23:09:16.961+0100 I NETWORK  [conn13] end connection 127.0.0.1:57577 (1 connection now open)
+2015-09-19T23:09:16.961+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57589 #15 (3 connections now open)
+2015-09-19T23:09:18.962+0100 I NETWORK  [conn14] end connection 127.0.0.1:57578 (1 connection now open)
+2015-09-19T23:09:18.962+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57590 #16 (3 connections now open)
+2015-09-19T23:09:47.005+0100 I NETWORK  [conn15] end connection 127.0.0.1:57589 (1 connection now open)
+2015-09-19T23:09:47.006+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57597 #17 (2 connections now open)
+2015-09-19T23:09:49.011+0100 I NETWORK  [conn16] end connection 127.0.0.1:57590 (1 connection now open)
+2015-09-19T23:09:49.012+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57599 #18 (3 connections now open)
+2015-09-19T23:10:17.065+0100 I NETWORK  [conn17] end connection 127.0.0.1:57597 (1 connection now open)
+2015-09-19T23:10:17.065+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57627 #19 (3 connections now open)
+2015-09-19T23:10:19.069+0100 I NETWORK  [conn18] end connection 127.0.0.1:57599 (1 connection now open)
+2015-09-19T23:10:19.069+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57635 #20 (3 connections now open)
+2015-09-19T23:10:47.129+0100 I NETWORK  [conn19] end connection 127.0.0.1:57627 (1 connection now open)
+2015-09-19T23:10:47.130+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57665 #21 (2 connections now open)
+2015-09-19T23:10:49.134+0100 I NETWORK  [conn20] end connection 127.0.0.1:57635 (1 connection now open)
+2015-09-19T23:10:49.134+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57666 #22 (3 connections now open)
+2015-09-19T23:11:17.189+0100 I NETWORK  [conn21] end connection 127.0.0.1:57665 (1 connection now open)
+2015-09-19T23:11:17.189+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57679 #23 (3 connections now open)
+2015-09-19T23:11:19.195+0100 I NETWORK  [conn22] end connection 127.0.0.1:57666 (1 connection now open)
+2015-09-19T23:11:19.196+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57683 #24 (2 connections now open)
+2015-09-19T23:11:27.621+0100 I REPL     [ReplicationExecutor] syncing from: localhost:27003
+2015-09-19T23:11:27.623+0100 I REPL     [SyncSourceFeedback] replset setting syncSourceFeedback to localhost:27003
+2015-09-19T23:11:27.624+0100 I INDEX    [repl writer worker 15] allocating new ns file /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/test.ns, filling with zeroes...
+2015-09-19T23:11:27.684+0100 I STORAGE  [FileAllocator] allocating new datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/test.0, filling with zeroes...
+2015-09-19T23:11:27.728+0100 I STORAGE  [FileAllocator] done allocating datafile /Users/Anyi/Github_Repos/Python/MongoDB_M102_MongoDB_For_DBAs/Final_Exam/Question1/data/z1/test.0, size: 16MB,  took 0.044 secs
+2015-09-19T23:11:47.249+0100 I NETWORK  [conn23] end connection 127.0.0.1:57679 (1 connection now open)
+2015-09-19T23:11:47.249+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57689 #25 (3 connections now open)
+2015-09-19T23:11:49.251+0100 I NETWORK  [conn24] end connection 127.0.0.1:57683 (1 connection now open)
+2015-09-19T23:11:49.252+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57693 #26 (3 connections now open)
+2015-09-19T23:12:06.991+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57696 #27 (3 connections now open)
+2015-09-19T23:12:13.031+0100 I COMMAND  [conn27] terminating, shutdown command received
+2015-09-19T23:12:13.032+0100 I REPL     [conn27] Stopping replication applier threads
+2015-09-19T23:12:13.303+0100 I STORAGE  [conn26] got request after shutdown()
+2015-09-19T23:12:13.303+0100 I STORAGE  [conn25] got request after shutdown()
+2015-09-19T23:12:17.974+0100 I CONTROL  [conn27] now exiting
+2015-09-19T23:12:17.974+0100 I NETWORK  [conn27] shutdown: going to close listening sockets...
+2015-09-19T23:12:17.974+0100 I NETWORK  [conn27] closing listening socket: 6
+2015-09-19T23:12:17.975+0100 I NETWORK  [conn27] closing listening socket: 7
+2015-09-19T23:12:17.976+0100 I NETWORK  [conn27] removing socket file: /tmp/mongodb-27001.sock
+2015-09-19T23:12:17.976+0100 I NETWORK  [conn27] shutdown: going to flush diaglog...
+2015-09-19T23:12:17.977+0100 I NETWORK  [conn27] shutdown: going to close sockets...
+2015-09-19T23:12:17.977+0100 I STORAGE  [conn27] shutdown: waiting for fs preallocator...
+2015-09-19T23:12:17.978+0100 I STORAGE  [conn27] shutdown: final commit...
+2015-09-19T23:12:17.984+0100 I JOURNAL  [conn27] journalCleanup...
+2015-09-19T23:12:17.986+0100 I JOURNAL  [conn27] removeJournalFiles
+2015-09-19T23:12:17.987+0100 I JOURNAL  [conn27] Terminating durability thread ...
+2015-09-19T23:12:18.095+0100 I JOURNAL  [journal writer] Journal writer thread stopped
+2015-09-19T23:12:18.096+0100 I JOURNAL  [durability] Durability thread stopped
+2015-09-19T23:12:18.096+0100 I STORAGE  [conn27] shutdown: closing all files...
+2015-09-19T23:12:18.097+0100 I STORAGE  [conn27] closeAllFiles() finished
+2015-09-19T23:12:18.097+0100 I STORAGE  [conn27] shutdown: removing fs lock...
+2015-09-19T23:12:18.097+0100 I CONTROL  [conn27] dbexit:  rc: 0
