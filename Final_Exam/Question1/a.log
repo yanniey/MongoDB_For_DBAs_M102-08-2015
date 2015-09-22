@@ -143,3 +143,68 @@
 2015-09-19T23:33:35.019+0100 I NETWORK  [conn61] end connection 127.0.0.1:59665 (2 connections now open)
 2015-09-19T23:33:35.020+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59674 #62 (4 connections now open)
 2015-09-19T23:33:35.021+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59675 #63 (3 connections now open)
+2015-09-19T23:34:05.077+0100 I NETWORK  [conn63] end connection 127.0.0.1:59675 (2 connections now open)
+2015-09-19T23:34:05.077+0100 I NETWORK  [conn62] end connection 127.0.0.1:59674 (2 connections now open)
+2015-09-19T23:34:05.078+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59682 #64 (4 connections now open)
+2015-09-19T23:34:05.079+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59683 #65 (3 connections now open)
+2015-09-19T23:34:35.142+0100 I NETWORK  [conn65] end connection 127.0.0.1:59683 (2 connections now open)
+2015-09-19T23:34:35.142+0100 I NETWORK  [conn64] end connection 127.0.0.1:59682 (2 connections now open)
+2015-09-19T23:34:35.143+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59710 #66 (4 connections now open)
+2015-09-19T23:34:35.144+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59711 #67 (3 connections now open)
+2015-09-19T23:35:05.206+0100 I NETWORK  [conn66] end connection 127.0.0.1:59710 (2 connections now open)
+2015-09-19T23:35:05.206+0100 I NETWORK  [conn67] end connection 127.0.0.1:59711 (2 connections now open)
+2015-09-19T23:35:05.206+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59764 #68 (4 connections now open)
+2015-09-19T23:35:05.207+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59765 #69 (3 connections now open)
+2015-09-19T23:35:35.258+0100 I NETWORK  [conn68] end connection 127.0.0.1:59764 (2 connections now open)
+2015-09-19T23:35:35.258+0100 I NETWORK  [conn69] end connection 127.0.0.1:59765 (2 connections now open)
+2015-09-19T23:35:35.258+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59782 #70 (4 connections now open)
+2015-09-19T23:35:35.259+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59781 #71 (3 connections now open)
+2015-09-19T23:36:05.326+0100 I NETWORK  [conn71] end connection 127.0.0.1:59781 (2 connections now open)
+2015-09-19T23:36:05.326+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59799 #72 (4 connections now open)
+2015-09-19T23:36:05.328+0100 I NETWORK  [conn70] end connection 127.0.0.1:59782 (2 connections now open)
+2015-09-19T23:36:05.328+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59800 #73 (4 connections now open)
+2015-09-19T23:36:25.387+0100 I NETWORK  [conn31] end connection 127.0.0.1:59367 (2 connections now open)
+2015-09-19T23:36:35.381+0100 I NETWORK  [conn73] end connection 127.0.0.1:59800 (1 connection now open)
+2015-09-19T23:36:35.381+0100 I NETWORK  [conn72] end connection 127.0.0.1:59799 (1 connection now open)
+2015-09-19T23:36:35.381+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59807 #74 (3 connections now open)
+2015-09-19T23:36:35.383+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59808 #75 (2 connections now open)
+2015-09-19T23:37:05.449+0100 I NETWORK  [conn74] end connection 127.0.0.1:59807 (1 connection now open)
+2015-09-19T23:37:05.449+0100 I NETWORK  [conn75] end connection 127.0.0.1:59808 (1 connection now open)
+2015-09-19T23:37:05.449+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59815 #76 (3 connections now open)
+2015-09-19T23:37:05.450+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59816 #77 (2 connections now open)
+2015-09-19T23:37:35.514+0100 I NETWORK  [conn77] end connection 127.0.0.1:59816 (1 connection now open)
+2015-09-19T23:37:35.514+0100 I NETWORK  [conn76] end connection 127.0.0.1:59815 (1 connection now open)
+2015-09-19T23:37:35.514+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59825 #78 (3 connections now open)
+2015-09-19T23:37:35.515+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59826 #79 (2 connections now open)
+2015-09-19T23:37:56.598+0100 I COMMAND  [repl writer worker 15] CMD: drop test.foo
+2015-09-19T23:38:05.575+0100 I NETWORK  [conn79] end connection 127.0.0.1:59826 (1 connection now open)
+2015-09-19T23:38:05.575+0100 I NETWORK  [conn78] end connection 127.0.0.1:59825 (1 connection now open)
+2015-09-19T23:38:05.575+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59831 #80 (3 connections now open)
+2015-09-19T23:38:05.576+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59832 #81 (2 connections now open)
+2015-09-19T23:38:33.558+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59837 #82 (3 connections now open)
+2015-09-19T23:38:35.646+0100 I NETWORK  [conn80] end connection 127.0.0.1:59831 (2 connections now open)
+2015-09-19T23:38:35.646+0100 I NETWORK  [conn81] end connection 127.0.0.1:59832 (2 connections now open)
+2015-09-19T23:38:35.646+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59840 #83 (4 connections now open)
+2015-09-19T23:38:35.647+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59841 #84 (3 connections now open)
+2015-09-19T23:38:37.910+0100 I COMMAND  [conn82] terminating, shutdown command received
+2015-09-19T23:38:37.911+0100 I REPL     [conn82] Stopping replication applier threads
+2015-09-19T23:38:39.654+0100 I STORAGE  [conn83] got request after shutdown()
+2015-09-19T23:38:39.654+0100 I STORAGE  [conn84] got request after shutdown()
+2015-09-19T23:38:41.893+0100 I CONTROL  [conn82] now exiting
+2015-09-19T23:38:41.893+0100 I NETWORK  [conn82] shutdown: going to close listening sockets...
+2015-09-19T23:38:41.893+0100 I NETWORK  [conn82] closing listening socket: 6
+2015-09-19T23:38:41.894+0100 I NETWORK  [conn82] closing listening socket: 7
+2015-09-19T23:38:41.894+0100 I NETWORK  [conn82] removing socket file: /tmp/mongodb-27001.sock
+2015-09-19T23:38:41.895+0100 I NETWORK  [conn82] shutdown: going to flush diaglog...
+2015-09-19T23:38:41.895+0100 I NETWORK  [conn82] shutdown: going to close sockets...
+2015-09-19T23:38:41.896+0100 I STORAGE  [conn82] shutdown: waiting for fs preallocator...
+2015-09-19T23:38:41.896+0100 I STORAGE  [conn82] shutdown: final commit...
+2015-09-19T23:38:41.911+0100 I JOURNAL  [conn82] journalCleanup...
+2015-09-19T23:38:41.914+0100 I JOURNAL  [conn82] removeJournalFiles
+2015-09-19T23:38:41.914+0100 I JOURNAL  [conn82] Terminating durability thread ...
+2015-09-19T23:38:42.008+0100 I JOURNAL  [journal writer] Journal writer thread stopped
+2015-09-19T23:38:42.009+0100 I JOURNAL  [durability] Durability thread stopped
+2015-09-19T23:38:42.009+0100 I STORAGE  [conn82] shutdown: closing all files...
+2015-09-19T23:38:42.011+0100 I STORAGE  [conn82] closeAllFiles() finished
+2015-09-19T23:38:42.011+0100 I STORAGE  [conn82] shutdown: removing fs lock...
+2015-09-19T23:38:42.011+0100 I CONTROL  [conn82] dbexit:  rc: 0

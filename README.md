@@ -1,6 +1,15 @@
-# M102P: MongoDB for DBAs
+# M102: MongoDB for DBAs
 
 August 2015 with MongoD Version 3.0.3
+
+--- 
+
+## Final Exam
+
+I missed the deadline for the final! Didn't expect to end this course this way. It's been a while since I started learning MongoDB and it took me moving to another continent to finish this course. Time to go and make myself some tea. 
+
+
+![Would you like to have some tea,sir?](http://cdnstatic.visualizeus.com/thumbs/e8/84/adorable,cat,cute,funny,kitty,tea-e88454a4e2c8d98c6861319e319e7242_h.jpg)
 
 ---
 ## Week 7: Security

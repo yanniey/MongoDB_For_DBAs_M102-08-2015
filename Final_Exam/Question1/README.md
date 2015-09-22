@@ -3,6 +3,8 @@
 Answer: `6`.
 
 
+Process:
+
 ```
 sh a.sh
 
